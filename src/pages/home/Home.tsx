@@ -1,29 +1,16 @@
 
-import React, {useState, useEffect} from 'react'
-
-interface myProps{
-  titulo: string,
-  texto: string,
-}
-
-function Home(props: myProps){
+import React, {useState} from 'react'
   
-  const [completed, setCompleted] = useState(false);
-  const [tarefa, setTarefa] = useState('');
-  
-  /*espera um motivo para causar um efeito,ex: efeito do botão de comprar > colocar o produto no carrinho, ao acionar 2x a senha, posso comparar ambas para ver se está correta. */ 
-  useEffect(() => {
-    if (completed) {
-      setTarefa('Parabéns! Você concluiu a tarefa!')
-    }
-    }, [completed])
+  const Home = () => {
+    const [loggedIn, setLoggedIn] = useState(false); 
+    return(
+     <div> 
+        {loggedIn ? (
+           <h1> Bem-vindo de volta!</h1>
+      ):(
+           <button onClick={() => setLoggedIn(true)}>Entrar</button>
+      )}
 
-  return (
-    <div> 
-      <h1> Tarefa</h1>
-        <h3>{tarefa}</h3>
-        <p>Conclua a tarefa</p>
-        <button onClick={() => setCompleted(true)}>Concluir Tarefa</button>
     </div>
   )
 }
