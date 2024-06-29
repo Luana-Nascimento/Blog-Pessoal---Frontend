@@ -1,4 +1,5 @@
 import React from 'react';
+import homeLogo from '../../assets/home.png'
 import './Home.css';
 
 function Home() {
@@ -17,11 +18,12 @@ function Home() {
             </div>
   
             <div className="flex justify-center ">
-              <img src="https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010125.jpg" alt="" className='w-2/3' />
+              <img src={homeLogo} alt="" className='w-2/3' />
+      
             </div>
           </div>
         </div>
-      
+        
       </>
     );
 }
