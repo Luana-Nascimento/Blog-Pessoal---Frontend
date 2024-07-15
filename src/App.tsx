@@ -1,27 +1,33 @@
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
 import './App.css';
-
-import Navbar from './componentes/navbar/Navbar';
-import Footer from './componentes/footer/Footer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/login/Login';
-import Cadastro from './pages/cadastro/Cadastro';
-import Home from './pages/home/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import Cadastro from './pages/cadastro/Cadastro';
+import Navbar from './componentes/navbar/Navbar';
+import Home from './pages/home/Home';
+import Footer from './componentes/footer/Footer';
 import ListaTemas from './componentes/temas/listaTemas/ListaTemas';
 import FormularioTema from './componentes/temas/formularioTema/FormularioTema';
 import DeletarTema from './componentes/temas/deletarTema/DeletarTema';
 import ListaPostagens from './componentes/postagens/listaPostagens/ListaPostagens';
 import FormularioPostagem from './componentes/postagens/formularioPostagem/FormularioPostagem';
-import DeletarPostagem from './componentes/postagens/deletarPostagem/DeletarPostagem';
-import Perfil from './pages/perfil/Perfil';
 
+import Perfil from './pages/perfil/Perfil';
+import DeletarPostagem from './componentes/postagens/deletarPostagem/DeletarPostagem';
 
 function App() {
+  
   return (
     <>
-    <AuthProvider>
+      <AuthProvider>
+      <ToastContainer />
         <BrowserRouter>
-          <Navbar />
+        <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
               <Route path="/" element={<Login />} />
@@ -41,8 +47,9 @@ function App() {
           </div>
           <Footer />
         </BrowserRouter>
-        </AuthProvider>
+      </AuthProvider>
     </>
   );
 }
+
 export default App;
